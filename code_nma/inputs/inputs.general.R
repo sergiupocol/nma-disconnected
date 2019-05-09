@@ -1,12 +1,7 @@
-if (Sys.info()["user"] == "Audrey.Beliveau"){
-  workdir <- "C:/Users/Audrey.Beliveau/Documents/network-meta-analysis"
-}
+workdir <- "~/Desktop/Dr. Beliveau Research/nma-disconnected-master"
 
-if (Sys.info()["user"] == "a.beliveau"){
-  workdir <- "~/network-meta-analysis"
-}
 
-other.inputs <- "inputs.depression.6.debug.R"
+other.inputs <- "inputs.diabetes.2arms.2.R"
 source(other.inputs)
 
 print.posterior.plots <- TRUE

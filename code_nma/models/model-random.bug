@@ -26,7 +26,8 @@ model {
 
   ### alpha[i] is i-th trial baseline
   for (i in 1:NUMTRIALS) {
-    alpha[i] ~ dnorm(alpha.mn, alpha.prc)
+    alpha[i] ~ dnorm(alpha.mn, alpha.prc) # I CHANGED THIS FROM 
+    #dnorm to dt and added parameter 3
   }
 
   alpha.mn ~ dnorm(0,0.000001)
@@ -37,11 +38,14 @@ model {
   ### dlta[i,j] is log-OR for j-th agent compared to 1st, in i-th trial
   ### whether or not these arm exists in the i-th trial
   for (i in 1:NUMTRIALS) {
-    logit(scsrt[i,1]) <- alpha[i]
+    cloglog(scsrt[i,1]) <- log(folup[i]) + alpha[i]
     for (j in 2:NUMAGENTS) {
       dlta[i,j-1] ~ dnorm(dlta.mn[i,j-1], dlta.prc)
       dlta.mn[i,j-1] <- ltnt[i]+d[j-1]
-      logit(scsrt[i,j]) <- alpha[i]+dlta[i,j-1]
+      cloglog(scsrt[i,j]) <- log(folup[i])+alpha[i]+dlta[i,j-1]
+      # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      #logit(scsrt[i,j]) <- alpha[i]+dlta[i,j-1]
+      # THE ABOVE WAS COMMENTED OUT BY SERGIU
     }
   }
   dlta.prc <- rhocomp.inv*sig2.inv
@@ -53,7 +57,6 @@ model {
 
  for (i in 1:TOTARMS) {
    y[i] ~ dbin( scsrt[trial[i],agent[i]], n[i]) 
-
  }
 
 }

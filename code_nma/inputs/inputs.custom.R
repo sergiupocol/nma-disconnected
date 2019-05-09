@@ -9,8 +9,8 @@ RData.folder <- "RData_files"
 ref.trt <- 1
 
 n.chains <- 1
-n.samples <- 101
-n.adapt <- 101
+n.samples <- 300000
+n.adapt <- 300000
 thin <- 1
 n.burnin <- 0
 

@@ -8,11 +8,11 @@ RData.folder <- "RData_files"
 ref.trt <- 2
 
 #MCMC parameters
-
-n.chains <- 1
-n.samples <- 101
-n.adapt <- 101
+## I DECREASED THE NUMBER OF  ZEROS
+n.chains <- 3
+n.samples <- 1500
+n.adapt <- 3000
 thin <- 1
-n.burnin <- 0
+n.burnin <- 500
 
 
