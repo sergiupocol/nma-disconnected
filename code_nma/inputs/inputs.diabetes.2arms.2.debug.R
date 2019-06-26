@@ -1,6 +1,6 @@
 n.disconnected.nodes <- 2
 max.samples <- 4
-output.folder <- "output"
+#output.folder <- "output"
 RData.folder <- "RData_files"
 ref.trt <- 2
 

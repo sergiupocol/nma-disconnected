@@ -1,7 +1,6 @@
-workdir <- "~/Desktop/Dr. Beliveau Research/nma-disconnected-master"
+workdir <- "~/Downloads/nma_clean"
 
-
-other.inputs <- "inputs.diabetes.2arms.2.R"
+other.inputs <- "inputs.diabetes.2arms.2.debug.R"
 source(other.inputs)
 
 print.posterior.plots <- TRUE

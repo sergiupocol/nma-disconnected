@@ -26,7 +26,7 @@ run.analyses <- function(networks,
     #cat("\nTreatment and trials are being renumbered for analysis. Proper unmapping
     #   of the monitored parameters relies on proper classification given in
     #   var.equiv.table provided as input by the user.\n")
-    mapping.tables <- lapply(col.select.list(networks$datasets, c("t.id","s.id")), # OMGGG I THINK HERE I NEED TO ADD FOLLOW UP TIME
+    mapping.tables <- lapply(col.select.list(networks$datasets, c("t.id","s.id")),
                              define.mappings,
                              ref.trt.list=list("t.id"=ref.trt,"s.id"=NA))
     save(mapping.tables, file=paste0(RData.folder,"/mapping.RData"))
@@ -35,7 +35,7 @@ run.analyses <- function(networks,
     data.list <- networks$datasets
   }
   
-  ### HERE SERGIU AT THIS POINT THE ANALYSIS IS RUN
+  
   for(i in 1:dim(which.analyses)[1]){
     cat(paste0("\nAnalyzing ", which.analyses$Description[i], "\n"))
     run.analysis(dataset.to.analyze=data.list[[which.analyses$Data[i]]],

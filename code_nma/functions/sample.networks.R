@@ -4,7 +4,7 @@ sample.networks <- function(data.tidied,
                             n.disconnected.nodes,
                             max.samples){
   
-  networks <- select.datasets(data=data.tidied$data, # HERE FOLLOW UP TIMES REMAIN
+  networks <- select.datasets(data=data.tidied$data, 
                               trt.names.data.frame=data.tidied$treatments, 
                               ref.trt=ref.trt, 
                               size=n.disconnected.nodes, 

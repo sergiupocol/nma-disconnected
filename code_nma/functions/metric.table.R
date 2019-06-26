@@ -51,6 +51,11 @@ metric.table <- function(which.compare.list,
   freq.table <- data.frame(bins, h$counts, h$density)
   colnames(freq.table) <- c("Value", "Count", "%")
   
+  
+  ## UPDATE HOPEFULLY GLOBAL
+  measure_of_success <- h$density[length(h$density)]
+  
+  
   write.csv(freq.table, paste0(output.folder,"/analysis/table.csv" ), row.names = FALSE)
   
   result.cast <- dcast(melt(result, id.vars = c("var","description")), var ~  description)

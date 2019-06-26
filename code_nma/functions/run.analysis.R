@@ -10,13 +10,11 @@ run.analysis <- function(dataset.to.analyze,
   NUMAGENTS <- length(unique(dataset.to.analyze$t.id))
   NUMTRIALS <- length(unique(dataset.to.analyze$s.id))
   TOTARMS <- dim(dataset.to.analyze)[1]
-  ### SERGIU MODIFY THE STUFF BELOW TO INCLUDE FOLLOW UP TIMES
+  
   data.jags <- list(y=dataset.to.analyze$r,
                     trial=dataset.to.analyze$s.id.mapped,
                     agent=dataset.to.analyze$t.id.mapped,
                     n=dataset.to.analyze$n,
-                    folup=dataset.to.analyze$folup,
-                    ####
                     NUMAGENTS=NUMAGENTS,
                     NUMTRIALS=NUMTRIALS,
                     TOTARMS=TOTARMS)
@@ -25,12 +23,12 @@ run.analysis <- function(dataset.to.analyze,
   #                  d=rnorm(NUMAGENTS-1,0,10),
   #                 alpha=rnorm(NUMTRIALS,0,5))
   inits.jags <- function() {
-    return(list(sig2=runif(1,0,3), #last param from 6 to 3 
+    return(list(sig2=runif(1,0,6), 
                 d=rnorm(NUMAGENTS-1,0,4), 
                 alpha=rnorm(NUMTRIALS,0,4)))
   }
   
-  ## SERGIU HERES ANOTHER CANDIDATE FOR INCORPORATING FOLLOWUP TIME
+  
   run.jags.result <- run.jags(model=paste0("code_nma/models/", model.file), 
                               monitor=vars.monitor,
                               data=data.jags, 

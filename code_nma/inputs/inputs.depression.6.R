@@ -31,4 +31,3 @@ n.burnin <- 50000
 #Function's name for data sampling
 
 data.fct.name <- "prep.data.depression"
-
