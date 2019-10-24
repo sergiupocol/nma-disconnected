@@ -1,7 +1,8 @@
-workdir <- "~/Downloads/nma_clean"
+workdir <- "/Users/sergiupocol/Desktop/nma-disconnected"
 
-other.inputs <- "inputs.diabetes.2arms.2.debug.R"
-source(other.inputs)
+other.inputs <- inputs.file.name#####"inputs.diabetes.2arms.2.debug.R"
+paste0("code_nma/inputs/", other.inputs)
+source(here::here(paste0("code_nma/inputs/", other.inputs)), local = TRUE)
 
 print.posterior.plots <- TRUE
 
@@ -16,4 +17,12 @@ rownames(var.equiv.table) <- c("t.id", "s.id")
 colnames(var.equiv.table) <- c("Vars.monitored","Reference")
 
 mapping.needed <- TRUE
+
+if (debug) {
+  n.chains <- 1
+  n.samples <- 101
+  n.adapt <- 101
+  thin <- 1
+  n.burnin <- 0
+}
 

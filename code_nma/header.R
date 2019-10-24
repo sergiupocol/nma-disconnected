@@ -19,5 +19,13 @@ install.require.packages(c("netmeta",
 setwd(workdir)
 
 
+#Create directories for output
+#output.folder <- "output"
+dir.create.ifnot(output.folder)
+dir.create.ifnot(paste0(output.folder, "/plots"))
+dir.create.ifnot(paste0(output.folder, "/analysis"))
+dir.create.ifnot(RData.folder)
+
+
 
 

@@ -1,0 +1,184 @@
+Thu Oct 24 10:30:46 2019 
+
+Inputs provided by the user:
+$data.fct.name
+[1] "prep.data.diabetes"
+
+$inputs.file.name
+[1] "inputs.diabetes.2.R"
+
+$mapping.needed
+[1] TRUE
+
+$max.samples
+[1] 40
+
+$n.adapt
+[1] 3000
+
+$n.burnin
+[1] 50000
+
+$n.chains
+[1] 3
+
+$n.disconnected.nodes
+[1] 2
+
+$n.samples
+[1] 3e+05
+
+$other.inputs
+[1] "inputs.diabetes.2.R"
+
+$output.folder
+[1] "output"
+
+$print.posterior.plots
+[1] TRUE
+
+$RData.folder
+[1] "RData_diab_2"
+
+$ref.trt
+[1] 2
+
+$thin
+[1] 1
+
+$var.equiv.table
+     Vars.monitored Reference
+t.id              d         2
+s.id          alpha        NA
+
+$var.trial.names
+[1] "alpha"
+
+$var.trt.names
+[1] "d"
+
+$vars.monitor
+[1] "sig2"  "d"     "alpha"
+
+$workdir
+[1] "/Users/sergiupocol/Desktop/nma-disconnected/code_nma"
+
+
+Full network data
+$data
+   s.id folup t.id   r    n
+1     1   5.8    1  43 1081
+2     1   5.8    2  34 2213
+3     1   5.8    3  37 1102
+4     2   4.7    1  29  416
+5     2   4.7    2  20  424
+6     3   3.0    1 140 1631
+7     3   3.0    2 118 1578
+8     4   3.8    1  75 3272
+9     4   3.8    3  86 3297
+10    5   4.0    1 302 6766
+11    5   4.0    4 154 3954
+12    5   4.0    5 119 4096
+13    6   3.0    1 176 2511
+14    6   3.0    4 136 2508
+15    7   4.1    1 200 2826
+16    7   4.1    5 138 2800
+17    8   1.0    1   8  196
+18    8   1.0    6   1  196
+19    9   3.3    2 154 4870
+20    9   3.3    4 177 4841
+21   10   3.0    2 489 2646
+22   10   3.0    5 449 2623
+23   11   4.5    2 155 2883
+24   11   4.5    5 102 2837
+25   12   4.8    2 399 3472
+26   12   4.8    5 335 3432
+27   13   3.1    2 202 2721
+28   13   3.1    6 163 2715
+29   14   3.7    2 115 2175
+30   14   3.7    6  93 2167
+31   15   3.8    3  70  405
+32   15   3.8    4  32  202
+33   15   3.8    5  45  410
+34   16   4.0    3  97 1960
+35   16   4.0    4  95 1965
+36   16   4.0    5  93 1970
+37   17   5.5    3 799 7040
+38   17   5.5    4 567 7072
+39   18   4.5    3 251 5059
+40   18   4.5    4 216 5095
+41   19   4.0    3 665 8078
+42   19   4.0    4 569 8098
+43   20   6.1    3 380 5230
+44   20   6.1    5 337 5183
+45   21   4.8    3 320 3979
+46   21   4.8    6 242 4020
+47   22   4.2    4 845 5074
+48   22   4.2    6 690 5087
+
+$treatments
+  trt.numbers     trt.names
+1           1      Diuretic
+2           2       Placebo
+3           3     b-blocker
+4           4           CCB
+5           5 ACE inhibitor
+6           6           ARB
+
+
+Number of possible disconnected networks: 9 
+
+Network graphs were added in /output/plots/ 
+
+Names of the networks available for the analyses
+ [1] "Network-1"    "Network-2"    "Network-3"    "Network-4"    "Network-5"    "Network-6"    "Network-7"   
+ [8] "Network-8"    "Network-9"    "Full-network"
+Called from: strsplit(params, " ")
+
+List of the posterior comparisons of interest:
+[[1]]
+     Data           Model              Description                Reference case for comparison
+[1,] "Full-network" "model-fixed.bug"  "Full-network-model-fixed" "YES"                        
+[2,] "Network-1"    "model-random.bug" "Network-1-model-random"   "NO"                         
+
+[[2]]
+     Data           Model              Description                Reference case for comparison
+[1,] "Full-network" "model-fixed.bug"  "Full-network-model-fixed" "YES"                        
+[2,] "Network-2"    "model-random.bug" "Network-2-model-random"   "NO"                         
+
+[[3]]
+     Data           Model              Description                Reference case for comparison
+[1,] "Full-network" "model-fixed.bug"  "Full-network-model-fixed" "YES"                        
+[2,] "Network-3"    "model-random.bug" "Network-3-model-random"   "NO"                         
+
+[[4]]
+     Data           Model              Description                Reference case for comparison
+[1,] "Full-network" "model-fixed.bug"  "Full-network-model-fixed" "YES"                        
+[2,] "Network-4"    "model-random.bug" "Network-4-model-random"   "NO"                         
+
+[[5]]
+     Data           Model              Description                Reference case for comparison
+[1,] "Full-network" "model-fixed.bug"  "Full-network-model-fixed" "YES"                        
+[2,] "Network-5"    "model-random.bug" "Network-5-model-random"   "NO"                         
+
+[[6]]
+     Data           Model              Description                Reference case for comparison
+[1,] "Full-network" "model-fixed.bug"  "Full-network-model-fixed" "YES"                        
+[2,] "Network-6"    "model-random.bug" "Network-6-model-random"   "NO"                         
+
+[[7]]
+     Data           Model              Description                Reference case for comparison
+[1,] "Full-network" "model-fixed.bug"  "Full-network-model-fixed" "YES"                        
+[2,] "Network-7"    "model-random.bug" "Network-7-model-random"   "NO"                         
+
+[[8]]
+     Data           Model              Description                Reference case for comparison
+[1,] "Full-network" "model-fixed.bug"  "Full-network-model-fixed" "YES"                        
+[2,] "Network-8"    "model-random.bug" "Network-8-model-random"   "NO"                         
+
+[[9]]
+     Data           Model              Description                Reference case for comparison
+[1,] "Full-network" "model-fixed.bug"  "Full-network-model-fixed" "YES"                        
+[2,] "Network-9"    "model-random.bug" "Network-9-model-random"   "NO"                         
+
+[1] "Thu Oct 24 10:31:12 2019"

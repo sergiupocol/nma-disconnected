@@ -26,7 +26,7 @@
     
     ### alpha[i] is i-th trial baseline
     for (i in 1:NUMTRIALS) {
-      alpha[i] ~ dt(alpha.mn,alpha.prc,3) # MODEL, PARAMS SPECIFIED HERE
+      alpha[i] ~ dt(alpha.mn,alpha.prc,30) # MODEL, PARAMS SPECIFIED HERE
     }
     
     alpha.mn ~ dnorm(0,0.000001)

@@ -1,0 +1,13 @@
+Thu Oct 24 10:30:47 2019 
+
+Treatments:
+
+ trt.numbers     trt.names
+           1      Diuretic
+           2       Placebo
+           3     b-blocker
+           4           CCB
+           5 ACE inhibitor
+           6           ARB
+
+The reference treatment is: 2

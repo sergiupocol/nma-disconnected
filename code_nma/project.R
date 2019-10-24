@@ -1,16 +1,19 @@
-## ALTERNATE DATASETS
-install.packages("gemtc")
-
-
-#
 rm(list = ls())
 library(stringr)
+library(ggplot2)
+library(dplyr)
+setwd("/Users/sergiupocol/Desktop/nma-disconnected")
+set.seed(20769454)
 
-measure_of_success <- 0
-dsname <- readline(prompt = "Dataset: \n")
-modelname <- readline(prompt = "Model for RBE: \n")
-params <- readline(prompt = "Parameters for above model: \n")
-plot_mos <- as.logical((readline(prompt = "Done comparing analyses? (TRUE or FALSE) \n"))[1])
+# Grab the arguments passed in from the command line
+comArgs <- unlist(strsplit(x = commandArgs(trailingOnly = TRUE)[1], split = " "))
+comArgs
+inputs.file.name <- comArgs[1]#readline(prompt = "Dataset: \n")
+model.name <- comArgs[2]#readline(prompt = "Model for RBE: \n")
+params <- comArgs[3]#readline(prompt = "Parameters for above model: \n")
+plot_mos <- as.logical(comArgs[4][1])#as.logical((readline(prompt = "Done comparing analyses? (TRUE or FALSE) \n"))[1])
+debug <- as.logical(comArgs[5][1])
+analysis_name <- paste0(inputs.file.name, model.name, params)
 
 ###Get inputs and header###
 source(paste0("code_nma/inputs/inputs.general.R"), 
@@ -18,17 +21,9 @@ source(paste0("code_nma/inputs/inputs.general.R"),
        chdir=TRUE)
 input.variables <- ls()
 
-######output.folder hereeee
 source("code_nma/header.R", 
        local=FALSE, 
        chdir=TRUE)
-
-#Create directories for output
-output.folder <- "output"
-dir.create.ifnot(output.folder)
-dir.create.ifnot(paste0(output.folder, "/plots"))
-dir.create.ifnot(paste0(output.folder, "/analysis"))
-dir.create.ifnot(RData.folder)
 
 ###Start writing output to file###
 sink(paste0(output.folder,"/Routput.txt"), append=FALSE, split=TRUE) 
@@ -57,7 +52,7 @@ which.analyses <- define.all.analyses(names(networks$datasets),
                                             length(networks$datasets)-1), 
                                         "model-fixed.bug"))   # MODEL FIXED
 
-buildnrun.analyses(modelname, #"dnorm"
+buildnrun.analyses(model.name, #"dnorm"
                    as.list(unlist(strsplit(params, " "))), # list("alpha.mn", "alpha.prc")
                    networks,
                    which.analyses,
@@ -92,28 +87,28 @@ out.results(inputs="inputs.general.R",
 date()
 sink()
 
-# I NEED TO READ FROM THE PROPER csv FILE THAT STORES THE MOS
 bin_table <- read.csv(paste0(output.folder, "/analysis/table.csv"))
-measure_of_success <- bin_table[,3][length(bin_table[,3])]
-analysis_name <- paste0(dsname, modelname, params)
+df <- data.frame(analysis_name, bin_table, stringsAsFactors = FALSE)
 if (!file.exists("mos_table.csv")) {
-  analysis_name <- c(paste0(dsname, modelname, params))
-  mos <- c(measure_of_success)
-  df <- data.frame(analysis_name, mos, stringsAsFactors = FALSE)
+  df <- data.frame(analysis_name, bin_table, stringsAsFactors = FALSE)
   write.csv(file = "mos_table.csv", x = df, row.names = FALSE)
 } else {
   mos_table <- read.csv("mos_table.csv", stringsAsFactors = FALSE)
-  mos_table <- rbind(mos_table, c(paste0(dsname, modelname, params), measure_of_success))
+  mos_table <- rbind(mos_table, df)
   write.csv(file = "mos_table.csv", x = mos_table, row.names = FALSE)
 }
 
 if (plot_mos) {
   ## NOW PLOT THE MOSs
   mos_table <- read.csv("mos_table.csv")
-  barplot(height = mos_table$mos, names.arg = mos_table$analysis_name)
+  mos_table
+  plot <- ggplot(mos_table, aes(analysis_name, Value)) + geom_tile(aes(fill = X.),colour = "white") +
+    scale_fill_gradient(low="white", high = "steelblue")
+  plot
 } 
 
+## REMEMBER THE NEW NAMING CONVENTION diabetes ;dt(3)
 ###here you can rename the folder
-system(paste0("mv output ", str_remove_all(paste0("___", dsname, modelname, params), pattern = " ")))
+system(paste0("mv ", output.folder, " ", str_remove_all(paste0("___", inputs.file.name, model.name, params), pattern = " ")))
 
 
