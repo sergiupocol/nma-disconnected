@@ -13,7 +13,8 @@ install.require.packages(c("netmeta",
                            "plotrix",
                            "gemtc",
                            "sampling",
-                           "reshape2"))
+                           "reshape2",
+                           "stringr"))
 
 #Set working directory
 setwd(workdir)

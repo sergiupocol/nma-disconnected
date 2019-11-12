@@ -1,0 +1,4 @@
+inputs.smoking.2.R dnorm alpha.mn,alpha.prc FALSE
+inputs.smoking.2.R dt alpha.mn,alpha.prc,3 FALSE
+inputs.smoking.2.R dt alpha.mn,alpha.prc,15 FALSE
+inputs.smoking.2.R dt alpha.mn,alpha.prc,30 FALSE

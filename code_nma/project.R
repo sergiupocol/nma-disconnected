@@ -1,9 +1,26 @@
 rm(list = ls())
+#Load functions
+install.packages(c("netmeta",
+                           "pcnetmeta",
+                           "runjags",
+                           "coda",
+                           "ggplot2",
+                           "dplyr",
+                           "plyr",
+                           "utils",
+                           "plotrix",
+                           "gemtc",
+                           "sampling",
+                           "reshape2",
+                           "stringr",
+                            "here",
+                            "gemtc"))
+
 library(stringr)
 library(ggplot2)
 library(dplyr)
 setwd("/Users/sergiupocol/Desktop/nma-disconnected")
-set.seed(20769454)
+set.seed(1)
 
 # Grab the arguments passed in from the command line
 comArgs <- unlist(strsplit(x = commandArgs(trailingOnly = TRUE)[1], split = " "))
