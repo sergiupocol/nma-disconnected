@@ -35,6 +35,6 @@ if (debug) {
 
 
 # Make the output folders unique
-RData.folder <- paste0(RData.folder, analysis_name)
+#RData.folder <- paste0(RData.folder, analysis_name)
 output.folder <- paste0("output___",analysis_name)
 

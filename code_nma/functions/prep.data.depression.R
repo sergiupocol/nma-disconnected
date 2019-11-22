@@ -1,10 +1,12 @@
 prep.data.depression <- function(){
   
-  depression.data <- depression$data.ab
+  depression.data <- read.csv("depressionData.csv")
   
-  trt.names <- rownames(depression$treatments)
+  trt.names <- as.character(unique(depression.data$treatment))#rownames(depression$treatments)
+  print(trt.names)
   trt.numbers <- 1:length(trt.names)
-  
+  print(trt.numbers)
+
   study.names <- unique(depression.data$study)
   study.numbers <- 1:length(study.names)
   

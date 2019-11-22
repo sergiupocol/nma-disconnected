@@ -19,7 +19,9 @@ run.analyses <- function(networks,
   }
   
   if(use.mapping==TRUE){
-    
+    cat("RData folder is: ")
+    print(RData.folder)
+    cat("\n")
     ###Assign new treatment and study ids,###
     ###using consecutive numbers starting with one,###
     ###so the data can be processed in JAGS###
