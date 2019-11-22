@@ -28,7 +28,7 @@ run.analysis <- function(dataset.to.analyze,
                 alpha=rnorm(NUMTRIALS,0,4)))
   }
   
-  
+  print("model-random.bug")
   run.jags.result <- run.jags(model=paste0("code_nma/models/", model.file), 
                               monitor=vars.monitor,
                               data=data.jags, 

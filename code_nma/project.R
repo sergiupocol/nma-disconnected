@@ -1,29 +1,28 @@
 rm(list = ls())
 #Load functions
-install.packages(c("netmeta",
-                           "pcnetmeta",
-                           "runjags",
-                           "coda",
-                           "ggplot2",
-                           "dplyr",
-                           "plyr",
-                           "utils",
-                           "plotrix",
-                           "gemtc",
-                           "sampling",
-                           "reshape2",
-                           "stringr",
-                            "here",
-                            "gemtc"))
+#install.packages(c("netmeta",
+#                           "pcnetmeta",
+#                           "runjags",
+#                           "coda",
+#                           "ggplot2",
+#                           "dplyr",
+#                           "plyr",
+#                           "utils",
+#                           "plotrix",
+#                           "gemtc",
+#                           "sampling",
+#                           "reshape2",
+#                           "stringr",
+#                            "here",
+#                            "gemtc"))
 
 library(stringr)
 library(ggplot2)
 library(dplyr)
-setwd("/Users/sergiupocol/Desktop/nma-disconnected")
 set.seed(1)
 
 # Grab the arguments passed in from the command line
-comArgs <- unlist(strsplit(x = commandArgs(trailingOnly = TRUE)[1], split = " "))
+comArgs <- unlist(strsplit(x = commandArgs(trailingOnly = TRUE), split = " "))
 comArgs
 inputs.file.name <- comArgs[1]#readline(prompt = "Dataset: \n")
 model.name <- comArgs[2]#readline(prompt = "Model for RBE: \n")
@@ -31,6 +30,11 @@ params <- comArgs[3]#readline(prompt = "Parameters for above model: \n")
 plot_mos <- as.logical(comArgs[4][1])#as.logical((readline(prompt = "Done comparing analyses? (TRUE or FALSE) \n"))[1])
 debug <- as.logical(comArgs[5][1])
 analysis_name <- paste0(inputs.file.name, model.name, params)
+
+work.dir <- comArgs[6][1]
+setwd(work.dir)
+
+
 
 ###Get inputs and header###
 source(paste0("code_nma/inputs/inputs.general.R"), 
@@ -104,28 +108,55 @@ out.results(inputs="inputs.general.R",
 date()
 sink()
 
+
+
 bin_table <- read.csv(paste0(output.folder, "/analysis/table.csv"))
 df <- data.frame(analysis_name, bin_table, stringsAsFactors = FALSE)
-if (!file.exists("mos_table.csv")) {
-  df <- data.frame(analysis_name, bin_table, stringsAsFactors = FALSE)
-  write.csv(file = "mos_table.csv", x = df, row.names = FALSE)
+
+mos_table_name <- paste0(analysis_name, "___mos_table.csv")
+
+if (!file.exists(mos_table_name)) {
+	  df <- data.frame(analysis_name, bin_table, stringsAsFactors = FALSE)
+  write.csv(file = mos_table_name, x = df, row.names = FALSE)
 } else {
-  mos_table <- read.csv("mos_table.csv", stringsAsFactors = FALSE)
+	  mos_table <- read.csv(mos_table_name, stringsAsFactors = FALSE)
   mos_table <- rbind(mos_table, df)
-  write.csv(file = "mos_table.csv", x = mos_table, row.names = FALSE)
+    write.csv(file = mos_table_name, x = mos_table, row.names = FALSE)
 }
 
 if (plot_mos) {
-  ## NOW PLOT THE MOSs
-  mos_table <- read.csv("mos_table.csv")
+	  ## NOW PLOT THE MOSs
+	  mos_table <- read.csv(mos_table_name)
   mos_table
-  plot <- ggplot(mos_table, aes(analysis_name, Value)) + geom_tile(aes(fill = X.),colour = "white") +
-    scale_fill_gradient(low="white", high = "steelblue")
-  plot
+    plot <- ggplot(mos_table, aes(analysis_name, Value)) + geom_tile(aes(fill = X.),colour = "white") +
+	        scale_fill_gradient(low="white", high = "steelblue")
+	  plot
 } 
+
+
+
+#bin_table <- read.csv(paste0(output.folder, "/analysis/table.csv"))
+#df <- data.frame(analysis_name, bin_table, stringsAsFactors = FALSE)
+#if (!file.exists("mos_table.csv")) {
+  #df <- data.frame(analysis_name, bin_table, stringsAsFactors = FALSE)
+ # write.csv(file = "mos_table.csv", x = df, row.names = FALSE)
+#} else {
+  #mos_table <- read.csv("mos_table.csv", stringsAsFactors = FALSE)
+  #mos_table <- rbind(mos_table, df)
+ # write.csv(file = "mos_table.csv", x = mos_table, row.names = FALSE)
+#}
+
+#if (plot_mos) {
+#  ## NOW PLOT THE MOSs
+#  mos_table <- read.csv("mos_table.csv")
+#  mos_table
+#  plot <- ggplot(mos_table, aes(analysis_name, Value)) + geom_tile(aes(fill = X.),colour = "white") +
+#    scale_fill_gradient(low="white", high = "steelblue")
+#  plot
+#} 
 
 ## REMEMBER THE NEW NAMING CONVENTION diabetes ;dt(3)
 ###here you can rename the folder
-system(paste0("mv ", output.folder, " ", str_remove_all(paste0("___", inputs.file.name, model.name, params), pattern = " ")))
+#system(paste0("mv ", output.folder, " ", str_remove_all(paste0("___", inputs.file.name, model.name, params), pattern = " ")))
 
 

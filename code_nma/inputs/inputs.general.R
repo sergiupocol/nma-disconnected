@@ -1,4 +1,4 @@
-workdir <- "/Users/sergiupocol/Desktop/nma-disconnected"
+workdir <- work.dir#"/home/spocol/projects/def-a2belive/spocol/nma-disconnected"
 
 other.inputs <- inputs.file.name#####"inputs.diabetes.2arms.2.debug.R"
 paste0("code_nma/inputs/", other.inputs)
@@ -24,5 +24,17 @@ if (debug) {
   n.adapt <- 101
   thin <- 1
   n.burnin <- 0
+} else {
+  n.chains <- 3
+  thin <- 10
+  n.samples <- 30000 / thin
+  n.adapt <- 3000
+  n.burnin <- 50000
 }
+
+
+
+# Make the output folders unique
+RData.folder <- paste0(RData.folder, analysis_name)
+output.folder <- paste0("output___",analysis_name)
 
