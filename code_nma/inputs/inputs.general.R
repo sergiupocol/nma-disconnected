@@ -32,6 +32,7 @@ if (debug) {
   n.burnin <- 50000
 }
 
+max.samples <- 35
 
 
 # Make the output folders unique

@@ -52,7 +52,7 @@ out.results <- function(inputs,
   
   names(summaries.list) <- as.character(which.analyses.subset$Description)
 
-  #save(summaries.list, file=paste0(RData.folder,"/summaries.RData"))
+  save(summaries.list, file=paste0(RData.folder,"/summaries.RData"))
   
   if(metrics==TRUE){
     metric.table(which.compare.list, 
