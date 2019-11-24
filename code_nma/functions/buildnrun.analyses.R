@@ -20,7 +20,8 @@ buildnrun.analyses <- function(re.model,
   re.model.params.string <- str_c(re.model.params, collapse = ",") #values but separated by commasssss
 
 
-
+  cat("The parameter string:\n")
+  print(re.model.params.string)
   if (!grepl("?",re.model.params.string)) { 
 	  template.random <- "
   #### random effect prior on baseline rates for each of NUMTRIAL trials

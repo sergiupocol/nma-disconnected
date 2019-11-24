@@ -9,6 +9,21 @@ prep.data.smoking <- function(){
   study.numbers <- 1:length(study.names)
   
   trt.names.data.frame <- data.frame(cbind(trt.numbers, trt.names))
+
+
+  n.arms <- table(smoking.data$study)
+  
+  which.2.arms <- as.numeric(names(which(n.arms == 2)))
+  
+  smoking.2.arms.only <- smoking.data[which(smoking.data$study %in% which.2.arms),]
+
+
+  cat("Complete smoking data\n")
+  print(smoking.data)
+  cat("Smoking data with only 2 arms >>>\n")
+  print(smoking.2.arms.only)
+
+
   
   smoking.data$t.id <- as.numeric(as.character(mapvalues(smoking.data$treatment,
                                                             trt.names, 
