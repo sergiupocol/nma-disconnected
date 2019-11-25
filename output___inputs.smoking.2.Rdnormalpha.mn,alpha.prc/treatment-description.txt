@@ -1,0 +1,11 @@
+Sun Nov 24 00:33:04 2019 
+
+Treatments:
+
+ trt.numbers trt.names
+           1         A
+           2         C
+           3         D
+           4         B
+
+The reference treatment is: 2

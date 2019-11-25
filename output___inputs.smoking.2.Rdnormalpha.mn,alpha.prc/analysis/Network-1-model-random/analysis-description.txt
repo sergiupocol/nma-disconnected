@@ -1,0 +1,9 @@
+Sun Nov 24 00:33:05 2019 
+
+Description: Network-1-model-random 
+
+Samples: 101 
+Burnin: 0 
+Thin: 1 
+Adapt: 101 
+Number of Chains: 1
