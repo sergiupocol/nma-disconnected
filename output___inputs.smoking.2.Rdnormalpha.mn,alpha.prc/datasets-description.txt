@@ -1,8 +1,0 @@
-Sun Nov 24 00:33:04 2019 
-
-Disconnected datasets:
-
-          Tot.arms Total.disc.arms         %
-Network-1        8               4 0.5000000
-Network-2       14               6 0.4285714
-Network-3       34               4 0.1176471

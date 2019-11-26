@@ -22,7 +22,7 @@ buildnrun.analyses <- function(re.model,
 
   cat("The parameter string:\n")
   print(re.model.params.string)
-  if (!grepl("?",re.model.params.string)) { 
+  if (!grepl("\\?",re.model.params.string)) { 
 	  template.random <- "
   #### random effect prior on baseline rates for each of NUMTRIAL trials
   #### 1-st agent is reference, effects for agents 2 thru NUMAGENT relative to this
