@@ -43,7 +43,7 @@ usage_error() {
 								    cd ../nma-disconnected-$(echo ${line//[[:blank:]]/})
 								    input=$line" "$debug" "$(pwd)
 								    echo "Job will run on input: "$input
-								    sbatch --account=def-a2belive --mem=3G --time=08:15:00 job.sh $input #$line" "$debug" "$(pwd)
+								    sbatch --account=def-a2belive --mem=2G --time=04:15:00 job.sh $input #$line" "$debug" "$(pwd)
 							            sleep 5 
 								    cd ../nma-disconnected 
 							    done

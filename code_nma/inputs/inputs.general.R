@@ -27,7 +27,7 @@ if (debug) {
 } else {
   n.chains <- 3
   thin <- 10
-  n.samples <- 30000 / thin
+  n.samples <- 300000 / thin
   n.adapt <- 3000
   n.burnin <- 50000
 }
