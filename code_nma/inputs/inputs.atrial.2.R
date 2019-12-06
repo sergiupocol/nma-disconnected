@@ -1,5 +1,5 @@
 
-n.disconnected.nodes <- 2
+n.disconnected.nodes <- 3
 
 max.samples <- 10
 

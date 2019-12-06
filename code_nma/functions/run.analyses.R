@@ -28,6 +28,9 @@ run.analyses <- function(networks,
     #cat("\nTreatment and trials are being renumbered for analysis. Proper unmapping
     #   of the monitored parameters relies on proper classification given in
     #   var.equiv.table provided as input by the user.\n")
+    print("Define mappings is called on:")
+    print(col.select.list(networks$datasets, c("t.id","s.id")))
+    print("<<<<<")
     mapping.tables <- lapply(col.select.list(networks$datasets, c("t.id","s.id")),
                              define.mappings,
                              ref.trt.list=list("t.id"=ref.trt,"s.id"=NA))

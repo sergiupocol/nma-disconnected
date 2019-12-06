@@ -30,10 +30,10 @@ inputs.file.name <- comArgs[1]#readline(prompt = "Dataset: \n")
 model.name <- comArgs[2]#readline(prompt = "Model for RBE: \n")
 params <- comArgs[3]#readline(prompt = "Parameters for above model: \n")
 plot_mos <- as.logical(comArgs[4][1])#as.logical((readline(prompt = "Done comparing analyses? (TRUE or FALSE) \n"))[1])
-debug <- as.logical(comArgs[5][1])
+debug <- as.logical(comArgs[6][1])
 analysis_name <- paste0(inputs.file.name, model.name, params)
 
-work.dir <- comArgs[6][1]
+work.dir <- comArgs[7][1]
 setwd(work.dir)
 
 
