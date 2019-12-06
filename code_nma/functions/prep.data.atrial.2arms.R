@@ -1,9 +1,18 @@
-prep.data.atrial <- function(){
+prep.data.atrial.2arms <- function(){
   
   atrial.data <- read.csv("atrialData.csv")
 
-  atrial.data <- as.data.frame(lapply(atrial.data, unlist))
-  
+  n.arms <- table(atrial.data$study)
+  which.2.arms <- names(which(n.arms == 2))
+  atrial.2.arms.only <- atrial.data[which(atrial.data$study %in% which.2.arms),]
+  cat("Complete atrial data\n")
+  print(atrial.data)
+  cat("atrial data with only 2 arms >>>\n")
+  print(atrial.2.arms.only)
+  atrial.data <- atrial.2.arms.only
+  #atrial.data <- as.data.frame(lapply(atrial.data, unlist))
+
+
   trt.names <- as.character(unique(atrial.data$treatment)) #rownames(gemtc::atrial$treatments)
   trt.numbers <- 1:length(trt.names)
   

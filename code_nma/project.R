@@ -23,7 +23,8 @@ library(dplyr)
 set.seed(1)
 
 # Grab the arguments passed in from the command line
-comArgs <- unlist(strsplit(x = commandArgs(trailingOnly = TRUE), split = " "))
+comArgsString <- commandArgs(trailingOnly = TRUE)
+comArgs <- unlist(strsplit(x = comArgsString, split = " "))
 comArgs
 inputs.file.name <- comArgs[1]#readline(prompt = "Dataset: \n")
 model.name <- comArgs[2]#readline(prompt = "Model for RBE: \n")

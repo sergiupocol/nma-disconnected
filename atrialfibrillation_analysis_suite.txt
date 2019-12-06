@@ -13,3 +13,4 @@ inputs.atrial.8.R dt alpha.mn,alpha.prc,1 FALSE
 inputs.atrial.8.R dt alpha.mn,alpha.prc,5 FALSE
 inputs.atrial.8.R dt alpha.mn,alpha.prc,15 FALSE
 inputs.atrial.8.R dt alpha.mn,alpha.prc,? FALSE
+

@@ -11,13 +11,24 @@ run.analysis <- function(dataset.to.analyze,
   NUMTRIALS <- length(unique(dataset.to.analyze$s.id))
   TOTARMS <- dim(dataset.to.analyze)[1]
   
-  data.jags <- list(y=dataset.to.analyze$r,
-                    trial=dataset.to.analyze$s.id.mapped,
-                    agent=dataset.to.analyze$t.id.mapped,
-                    n=dataset.to.analyze$n,
-                    NUMAGENTS=NUMAGENTS,
-                    NUMTRIALS=NUMTRIALS,
-                    TOTARMS=TOTARMS)
+  if (!grepl(pattern = "folup", x = comArgsString)) {
+    data.jags <- list(y=dataset.to.analyze$r,
+                      trial=dataset.to.analyze$s.id.mapped,
+                      agent=dataset.to.analyze$t.id.mapped,
+                      n=dataset.to.analyze$n,
+                      NUMAGENTS=NUMAGENTS,
+                      NUMTRIALS=NUMTRIALS,
+                      TOTARMS=TOTARMS)
+  } else {
+    data.jags <- list(y=dataset.to.analyze$r,
+                      trial=dataset.to.analyze$s.id.mapped,
+                      agent=dataset.to.analyze$t.id.mapped,
+                      n=dataset.to.analyze$n,
+                      folup=dataset.to.analyze$folup,
+                      NUMAGENTS=NUMAGENTS,
+                      NUMTRIALS=NUMTRIALS,
+                      TOTARMS=TOTARMS)
+  }
   
   #inits.jags <- list(sig2=runif(1,0,10),
   #                  d=rnorm(NUMAGENTS-1,0,10),

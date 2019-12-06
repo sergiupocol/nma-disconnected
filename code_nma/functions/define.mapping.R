@@ -7,6 +7,11 @@ define.mapping <- function(id, ref.trt){
   
   mapping.table <- unique(data.frame(cbind(id, id.mapped)))
   colnames(mapping.table) <- c("from","to")
+  print("HERE IS THE MAPPING TABLE ::::::::\n")
+  print(mapping.table)
+
+  mapping.table <- as.data.frame(lapply(mapping.table, unlist))
+
   mapping.table <- mapping.table[order(mapping.table$from),]
   
   return(mapping.table)

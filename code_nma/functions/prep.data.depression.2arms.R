@@ -1,6 +1,23 @@
 prep.data.depression.2arms <- function(){
   
   depression.data <- read.csv("depressionData.csv")
+
+
+  n.arms <- table(depression.data$study)
+  print("OIIIIII: >>>>>>>>\n")
+  print(n.arms)
+  which.2.arms <- (names(which(n.arms == 2)))
+  
+  depression.2.arms.only <- depression.data[which(depression.data$study %in% which.2.arms),]
+
+
+
+  cat("Complete depression data\n")
+  print(depression.data)
+  cat("depression data with only 2 arms >>>\n")
+  print(depression.2.arms.only)
+  depression.data <- depression.2.arms.only
+  #atrial.data <- as.data.frame(lapply(atrial.data, unlist))
   
   trt.names <- as.character(unique(depression.data$treatment)) #rownames(gemtc::depression$treatments)
   trt.numbers <- 1:length(trt.names)
@@ -11,21 +28,8 @@ prep.data.depression.2arms <- function(){
   trt.names.data.frame <- data.frame(cbind(trt.numbers, trt.names))
 
 
-  n.arms <- table(depression.data$study)
-  
-  which.2.arms <- as.numeric(names(which(n.arms == 2)))
-  
-  depression.2.arms.only <- depression.data[which(depression.data$study %in% which.2.arms),]
 
-
-
-  cat("Complete depression data\n")
-  print(depression.data)
-  cat("depression data with only 2 arms >>>\n")
-  print(depression.2.arms.only)
-
-
-  depression.data <- depression.2.arms.only
+ 
   
   depression.data$t.id <- as.numeric(as.character(mapvalues(depression.data$treatment,
                                                             trt.names, 

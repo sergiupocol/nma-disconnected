@@ -1,5 +1,5 @@
 
-#### flat prior on baseline rates for each of NUMTRIAL trials
+    #### flat prior on baseline rates for each of NUMTRIAL trials
 #### 1-st agent is reference, effects for agents 2 thru NUMAGENT relative to this
 
 model {
@@ -15,7 +15,7 @@ model {
 
   ### d[i] is typical log-OR, (i+1)-st agent compared to 1st-agent, as per notes
   for (i in 1:(NUMAGENTS-1)) {
-   d[i] ~ dnorm(0, 0.000001)
+   d[i] ~ dnorm(0, 0.0001)
   }
 
   ### ltnt[] are trick variables to represent correlation structure
@@ -26,7 +26,7 @@ model {
 
   ### alpha[i] is i-th trial baseline
   for (i in 1:NUMTRIALS) {
-    alpha[i] ~ dnorm(0, 0.000001)
+    alpha[i] ~ dnorm(0, 0.0001)
   }
 
   ### dlta[i,j-1] is log-OR for j-th agent compared to 1st, in i-th trial
@@ -52,3 +52,4 @@ model {
  }
 
 }
+    

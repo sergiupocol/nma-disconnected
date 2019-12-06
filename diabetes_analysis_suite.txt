@@ -1,20 +1,20 @@
-inputs.diabetes.2.R dnorm alpha.mn,alpha.prc FALSE
-inputs.diabetes.2.R dt alpha.mn,alpha.prc,1 FALSE
-inputs.diabetes.2.R dt alpha.mn,alpha.prc,5 FALSE
-inputs.diabetes.2.R dt alpha.mn,alpha.prc,15 FALSE
-inputs.diabetes.2.R dt alpha.mn,alpha.prc,? FALSE
-inputs.diabetes.3.R dnorm alpha.mn,alpha.prc FALSE
-inputs.diabetes.3.R dt alpha.mn,alpha.prc,1 FALSE
-inputs.diabetes.3.R dt alpha.mn,alpha.prc,5 FALSE
-inputs.diabetes.3.R dt alpha.mn,alpha.prc,15 FALSE
-inputs.diabetes.3.R dt alpha.mn,alpha.prc,? FALSE
-inputs.diabetes.2arms.2.R dnorm alpha.mn,alpha.prc FALSE
-inputs.diabetes.2arms.2.R dt alpha.mn,alpha.prc,1 FALSE
-inputs.diabetes.2arms.2.R dt alpha.mn,alpha.prc,5 FALSE
-inputs.diabetes.2arms.2.R dt alpha.mn,alpha.prc,15 FALSE
-inputs.diabetes.2arms.2.R dt alpha.mn,alpha.prc,? FALSE
-inputs.diabetes.2arms.3.R dnorm alpha.mn,alpha.prc FALSE
-inputs.diabetes.2arms.3.R dt alpha.mn,alpha.prc,1 FALSE
-inputs.diabetes.2arms.3.R dt alpha.mn,alpha.prc,5 FALSE
-inputs.diabetes.2arms.3.R dt alpha.mn,alpha.prc,15 FALSE
-inputs.diabetes.2arms.3.R dt alpha.mn,alpha.prc,? FALSE
+inputs.diabetes.2.R dnorm alpha.mn,alpha.prc FALSE folup
+inputs.diabetes.2.R dt alpha.mn,alpha.prc,1 FALSE folup
+inputs.diabetes.2.R dt alpha.mn,alpha.prc,5 FALSE folup
+inputs.diabetes.2.R dt alpha.mn,alpha.prc,15 FALSE folup
+inputs.diabetes.2.R dt alpha.mn,alpha.prc,? FALSE folup
+inputs.diabetes.3.R dnorm alpha.mn,alpha.prc FALSE folup
+inputs.diabetes.3.R dt alpha.mn,alpha.prc,1 FALSE folup
+inputs.diabetes.3.R dt alpha.mn,alpha.prc,5 FALSE folup
+inputs.diabetes.3.R dt alpha.mn,alpha.prc,15 FALSE folup
+inputs.diabetes.3.R dt alpha.mn,alpha.prc,? FALSE folup
+inputs.diabetes.2arms.2.R dnorm alpha.mn,alpha.prc FALSE folup
+inputs.diabetes.2arms.2.R dt alpha.mn,alpha.prc,1 FALSE folup
+inputs.diabetes.2arms.2.R dt alpha.mn,alpha.prc,5 FALSE folup
+inputs.diabetes.2arms.2.R dt alpha.mn,alpha.prc,15 FALSE folup
+inputs.diabetes.2arms.2.R dt alpha.mn,alpha.prc,? FALSE folup
+inputs.diabetes.2arms.3.R dnorm alpha.mn,alpha.prc FALSE folup
+inputs.diabetes.2arms.3.R dt alpha.mn,alpha.prc,1 FALSE folup
+inputs.diabetes.2arms.3.R dt alpha.mn,alpha.prc,5 FALSE folup
+inputs.diabetes.2arms.3.R dt alpha.mn,alpha.prc,15 FALSE folup
+inputs.diabetes.2arms.3.R dt alpha.mn,alpha.prc,? FALSE folup

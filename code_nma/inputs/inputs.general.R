@@ -26,13 +26,20 @@ if (debug) {
   n.burnin <- 0
 } else {
   n.chains <- 3
-  thin <- 10
+  thin <- 20
   n.samples <- 300000 / thin
   n.adapt <- 3000
   n.burnin <- 50000
 }
 
 max.samples <- 35
+
+## GRAB THE FOLUP TIME IN THE CASE THAT THE DATASET IS ATRIALFIBRILLATION
+#atrialStudies <- read.csv("atrialStudies.csv")
+
+#folup <- atrialStudies$folup
+#print("Follow up time:\n")
+#print(folup)
 
 
 # Make the output folders unique
