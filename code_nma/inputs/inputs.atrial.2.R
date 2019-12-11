@@ -1,5 +1,5 @@
 
-n.disconnected.nodes <- 3
+n.disconnected.nodes <- 2
 
 max.samples <- 10
 
@@ -19,7 +19,7 @@ RData.folder <- paste0("RData_",
                        n.disconnected.nodes)
 }
 
-ref.trt <- 2
+ref.trt <- 3
 
 #MCMC parameters
 

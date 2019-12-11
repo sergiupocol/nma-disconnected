@@ -1,5 +1,4 @@
 define.mapping <- function(id, ref.trt){
-  
   id.mapped <- sapply(id,
                       mapping,
                       from=unique(id),

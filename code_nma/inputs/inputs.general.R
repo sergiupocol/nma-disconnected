@@ -33,6 +33,9 @@ if (debug) {
 }
 
 max.samples <- 35
+if (grepl(pattern = "atrial", inputs.file.name)) { ## atrial data
+  ref.trt <- 1
+}
 
 ## GRAB THE FOLUP TIME IN THE CASE THAT THE DATASET IS ATRIALFIBRILLATION
 #atrialStudies <- read.csv("atrialStudies.csv")

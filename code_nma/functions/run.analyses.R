@@ -19,18 +19,12 @@ run.analyses <- function(networks,
   }
   
   if(use.mapping==TRUE){
-    cat("RData folder is: ")
-    print(RData.folder)
-    cat("\n")
     ###Assign new treatment and study ids,###
     ###using consecutive numbers starting with one,###
     ###so the data can be processed in JAGS###
     #cat("\nTreatment and trials are being renumbered for analysis. Proper unmapping
     #   of the monitored parameters relies on proper classification given in
     #   var.equiv.table provided as input by the user.\n")
-    print("Define mappings is called on:")
-    print(col.select.list(networks$datasets, c("t.id","s.id")))
-    print("<<<<<")
     mapping.tables <- lapply(col.select.list(networks$datasets, c("t.id","s.id")),
                              define.mappings,
                              ref.trt.list=list("t.id"=ref.trt,"s.id"=NA))

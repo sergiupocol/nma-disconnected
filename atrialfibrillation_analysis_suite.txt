@@ -1,16 +1,4 @@
-inputs.atrial.2.R dnorm alpha.mn,alpha.prc FALSE
-inputs.atrial.2.R dt alpha.mn,alpha.prc,1 FALSE
-inputs.atrial.2.R dt alpha.mn,alpha.prc,5 FALSE
-inputs.atrial.2.R dt alpha.mn,alpha.prc,15 FALSE
-inputs.atrial.2.R dt alpha.mn,alpha.prc,? FALSE
-inputs.atrial.5.R dnorm alpha.mn,alpha.prc FALSE
-inputs.atrial.5.R dt alpha.mn,alpha.prc,1 FALSE
-inputs.atrial.5.R dt alpha.mn,alpha.prc,5 FALSE
-inputs.atrial.5.R dt alpha.mn,alpha.prc,15 FALSE
-inputs.atrial.5.R dt alpha.mn,alpha.prc,? FALSE
-inputs.atrial.8.R dnorm alpha.mn,alpha.prc FALSE
-inputs.atrial.8.R dt alpha.mn,alpha.prc,1 FALSE
-inputs.atrial.8.R dt alpha.mn,alpha.prc,5 FALSE
-inputs.atrial.8.R dt alpha.mn,alpha.prc,15 FALSE
-inputs.atrial.8.R dt alpha.mn,alpha.prc,? FALSE
+inputs.atrial.2.R dt alpha.mn,alpha.prc,? FALSE x
+inputs.atrial.5.R dt alpha.mn,alpha.prc,1 FALSE x
+inputs.atrial.5.R dt alpha.mn,alpha.prc,? FALSE x
 

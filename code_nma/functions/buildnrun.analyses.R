@@ -41,7 +41,7 @@ buildnrun.analyses <- function(re.model,
             
             ### d[i] is typical log-OR, (i+1)-st agent compared to 1st-agent, as per notes
             for (i in 1:(NUMAGENTS-1)) {
-            d[i] ~ dnorm(0, 0.0001)
+            d[i] ~ dnorm(0, 0.000001)
             }
             
             ### ltnt[] are trick variables to represent correlation structure
@@ -55,9 +55,9 @@ buildnrun.analyses <- function(re.model,
               alpha[i] ~ %s(%s) # MODEL, PARAMS SPECIFIED HERE
             }
             
-            alpha.mn ~ dnorm(0,0.0001)
+            alpha.mn ~ dnorm(0,0.000001)
             alpha.prc <- 1/alpha.vr
-            alpha.vr ~ dunif(0,36)
+            alpha.vr ~ dunif(0,10)
             
             
             ### dlta[i,j] is log-OR for j-th agent compared to 1st, in i-th trial
@@ -102,7 +102,7 @@ buildnrun.analyses <- function(re.model,
             
             ### d[i] is typical log-OR, (i+1)-st agent compared to 1st-agent, as per notes
             for (i in 1:(NUMAGENTS-1)) {
-            d[i] ~ dnorm(0, 0.0001)
+            d[i] ~ dnorm(0, 0.000001)
             }
             
             ### ltnt[] are trick variables to represent correlation structure
@@ -116,9 +116,9 @@ buildnrun.analyses <- function(re.model,
               alpha[i] ~ dnorm(alpha.mn,alpha.prc) # MODEL, PARAMS SPECIFIED HERE
             }
             
-            alpha.mn ~ dnorm(0,0.0001)
+            alpha.mn ~ dnorm(0,0.000001)
             alpha.prc <- 1/alpha.vr
-            alpha.vr ~ dunif(0,36)
+            alpha.vr ~ dunif(0,10)
             
             
             ### dlta[i,j] is log-OR for j-th agent compared to 1st, in i-th trial
@@ -172,7 +172,7 @@ buildnrun.analyses <- function(re.model,
 	    
 	    ### d[i] is typical log-OR, (i+1)-st agent compared to 1st-agent, as per notes
 	    for (i in 1:(NUMAGENTS-1)) {
-		        d[i] ~ dnorm(0, 0.0001)
+		        d[i] ~ dnorm(0, 0.000001)
 	        }
 	        
 	        ### ltnt[] are trick variables to represent correlation structure
@@ -192,9 +192,9 @@ buildnrun.analyses <- function(re.model,
 			          alpha[i] ~ dt(alpha.mn,alpha.prc,df) # MODEL, PARAMS SPECIFIED HERE
 		    }
 		    
-		    alpha.mn ~ dnorm(0,0.0001)
+		    alpha.mn ~ dnorm(0,0.000001)
 		        alpha.prc <- 1/alpha.vr
-		        alpha.vr ~ dunif(0,36)
+		        alpha.vr ~ dunif(0,10)
 			    
 			    
 			    ### dlta[i,j] is log-OR for j-th agent compared to 1st, in i-th trial
@@ -242,7 +242,7 @@ buildnrun.analyses <- function(re.model,
                           
                           ### d[i] is typical log-OR, (i+1)-st agent compared to 1st-agent, as per notes
                           for (i in 1:(NUMAGENTS-1)) {
-                                d[i] ~ dnorm(0, 0.0001)
+                                d[i] ~ dnorm(0, 0.000001)
                               }
                               
                               ### ltnt[] are trick variables to represent correlation structure
@@ -262,9 +262,9 @@ buildnrun.analyses <- function(re.model,
                                     alpha[i] ~ dt(alpha.mn,alpha.prc,df) # MODEL, PARAMS SPECIFIED HERE
                             }
                             
-                            alpha.mn ~ dnorm(0,0.0001)
+                            alpha.mn ~ dnorm(0,0.000001)
                                 alpha.prc <- 1/alpha.vr
-                                alpha.vr ~ dunif(0,36)
+                                alpha.vr ~ dunif(0,10)
                               
                               
                               ### dlta[i,j] is log-OR for j-th agent compared to 1st, in i-th trial
@@ -336,7 +336,7 @@ model {
 
   ### d[i] is typical log-OR, (i+1)-st agent compared to 1st-agent, as per notes
   for (i in 1:(NUMAGENTS-1)) {
-   d[i] ~ dnorm(0, 0.0001)
+   d[i] ~ dnorm(0, 0.000001)
   }
 
   ### ltnt[] are trick variables to represent correlation structure
@@ -395,7 +395,7 @@ model {
 
   ### d[i] is typical log-OR, (i+1)-st agent compared to 1st-agent, as per notes
   for (i in 1:(NUMAGENTS-1)) {
-   d[i] ~ dnorm(0, 0.0001)
+   d[i] ~ dnorm(0, 0.000001)
   }
 
   ### ltnt[] are trick variables to represent correlation structure

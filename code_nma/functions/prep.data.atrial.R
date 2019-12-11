@@ -2,17 +2,22 @@ prep.data.atrial <- function(){
   
   atrial.data <- read.csv("atrialData.csv")
 
-  atrial.data <- as.data.frame(lapply(atrial.data, unlist))
-  
-  trt.names <- as.character(unique(atrial.data$treatment)) #rownames(gemtc::atrial$treatments)
+  atrial.studies.data <- read.csv("atrialStudies.csv")
+  #atrial.data$folup <- atrial.studies.data[atrial.studies.data$study == atrial.data$study,]$folup
+  atrial.data <- merge(atrial.data, atrial.studies.data, by = "study")
+  atrial.data <- subset(atrial.data, select = -c(exposure,stroke,year))
+  atrial.data <- rename(atrial.data, c("followup" = "folup"))
+
+
+  trt.names <- as.character(unique(atrial.data$treatment))#rownames(atrial$treatments)
+  print(trt.names)
   trt.numbers <- 1:length(trt.names)
-  
+  print(trt.numbers)
+
   study.names <- unique(atrial.data$study)
   study.numbers <- 1:length(study.names)
   
   trt.names.data.frame <- data.frame(cbind(trt.numbers, trt.names))
-
-
   
   atrial.data$t.id <- as.numeric(as.character(mapvalues(atrial.data$treatment,
                                                             trt.names, 

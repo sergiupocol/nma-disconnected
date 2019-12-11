@@ -19,7 +19,7 @@ RData.folder <- paste0("RData_",
                        n.disconnected.nodes)
 }
 
-ref.trt <- 2
+ref.trt <- 3
 
 #MCMC parameters
 

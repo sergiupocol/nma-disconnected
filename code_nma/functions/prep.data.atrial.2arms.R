@@ -2,6 +2,14 @@ prep.data.atrial.2arms <- function(){
   
   atrial.data <- read.csv("atrialData.csv")
 
+  atrial.studies.data <- read.csv("atrialStudies.csv")
+  atrial.data <- merge(atrial.data, atrial.studies.data, by = "study")
+  atrial.data <- subset(atrial.data, select = -c(exposure,stroke,year))
+  atrial.data <- rename(atrial.data, c("followup" = "folup"))
+
+
+
+
   n.arms <- table(atrial.data$study)
   which.2.arms <- names(which(n.arms == 2))
   atrial.2.arms.only <- atrial.data[which(atrial.data$study %in% which.2.arms),]
@@ -11,6 +19,7 @@ prep.data.atrial.2arms <- function(){
   print(atrial.2.arms.only)
   atrial.data <- atrial.2.arms.only
   #atrial.data <- as.data.frame(lapply(atrial.data, unlist))
+  
 
 
   trt.names <- as.character(unique(atrial.data$treatment)) #rownames(gemtc::atrial$treatments)
